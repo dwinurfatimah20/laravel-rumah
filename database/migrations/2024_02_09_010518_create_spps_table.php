@@ -3,8 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Console\Seeds\WithoutModelIvents;
-
 
 return new class extends Migration
 {
@@ -13,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('masyarakats', function (Blueprint $table) {
-            $table->char('nik', 16)->primary();
-            $table->string('nama', 35);
-            $table->string('username', 25);
-            $table->string('password', 32);
-            $table->string('telepon', 13);
+        Schema::create(table: 'spps', callback: function (Blueprint $table) {
+            $table->id(column: 'id_spps');
+            $table->integer(column: 'tahun');
+            $table->integer(column: 'nominal');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('masyarakats');
+        Schema::dropIfExists('spps');
     }
 };
