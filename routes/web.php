@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SppController;
+use App\Http\Controllers\KelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::controller(SppController::class)->group(function () {
     Route::put('/spp/{id}/update', 'update')->name('spp.update');
     Route::delete('/spp/{id}', 'destroy')->name('spp.destroy');
 });
-
+ 
 Route::view('/template', 'template.master');
 Route::view('/test', 'test');
 Route::view('/tos', 'tos');
@@ -48,3 +49,5 @@ Route::get('/hello', function(){
 Route::post('/hai', function(){
     return 'Haaaiii';
 });
+
+Route::resource('/kelas', KelasController::class);
